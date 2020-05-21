@@ -20,8 +20,20 @@
 			<key>label</key>
 			<string>Enable</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>		
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>detail</key>
+			<string>TARFolderController</string>
+			<key>label</key>
+			<string>Folders</string>
+		</dict>
 	</array>
 	<key>title</key>
-	<string>TartinePrefs</string>
+	<string>Tartine</string>
 </dict>
 </plist>
