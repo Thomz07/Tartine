@@ -16,6 +16,7 @@
 
 	UIBarButtonItem *applyButton = [[UIBarButtonItem alloc] initWithTitle:@"Respring" style:UIBarButtonItemStylePlain target:self action:@selector(respring:)];
     self.navigationItem.rightBarButtonItem = applyButton;
+
 }
 
 -(void)respring:(id)sender {
@@ -64,3 +65,4 @@
     [self.control setFrame:CGRectOffset(self.control.frame, 0, 15)];
 }
 @end
+

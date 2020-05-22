@@ -12,6 +12,14 @@
 		</dict>
         <dict>
 			<key>cell</key>
+			<string>PSDefaultCell</string>	
+            <key>cellClass</key>
+			<string>TartinePreviewCell</string>	
+            <key>height</key>
+			<integer>100</integer>	
+		</dict>
+        <dict>
+			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
 			<false/>
@@ -45,6 +53,8 @@
 			<string>Blur Factor</string>
 			<key>height</key>
 			<integer>85</integer>
+            <key>PostNotification</key>
+			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -69,6 +79,8 @@
 			<string>Color Tint Alpha</string>
 			<key>height</key>
 			<integer>85</integer>
+            <key>PostNotification</key>
+			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -93,6 +105,8 @@
 			<string>Saturation Delta Factor</string>
 			<key>height</key>
 			<integer>85</integer>
+            <key>PostNotification</key>
+			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -113,6 +127,8 @@
 			<string>folders_container_redFactor</string>
             <key>leftImage</key>
 			<string>red.png</string>
+            <key>PostNotification</key>
+			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -133,6 +149,8 @@
 			<string>folders_container_greenFactor</string>
             <key>leftImage</key>
 			<string>green.png</string>
+            <key>PostNotification</key>
+			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -153,6 +171,8 @@
 			<string>folders_container_blueFactor</string>
             <key>leftImage</key>
 			<string>blue.png</string>
+            <key>PostNotification</key>
+			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
         <dict>
 			<key>cell</key>

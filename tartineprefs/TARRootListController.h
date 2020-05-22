@@ -4,6 +4,8 @@
 #import <Preferences/PSListItemsController.h>
 #import <Preferences/PSSliderTableCell.h>
 
+NSDictionary *prefs;
+
 @interface TARRootListController : PSListController
 @end
 
@@ -17,3 +19,4 @@
 - (void)waitUntilExit;
 - (void)launch;
 @end
+
