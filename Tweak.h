@@ -30,15 +30,13 @@ BOOL enabled;
 
 // folders prefs
 
+BOOL folders_container_enable;
 double folders_container_blurFactor;
 double folders_container_colorTintAlpha;
 double folders_container_saturationDeltafactor;
-double folders_container_red;
-double folders_container_green;
-double folders_container_blue;
-float folders_container_red_float;
-float folders_container_green_float;
-float folders_container_blue_float;
+double folders_container_redFactor;
+double folders_container_greenFactor;
+double folders_container_blueFactor;
 
 #define PLIST_PATH @"/User/Library/Preferences/com.thomz.tartineprefs.plist"
 #define kIdentifier @"com.thomz.tartineprefs"
@@ -83,14 +81,11 @@ static void preferencesChanged() {
 
     // folder
 
+    folders_container_enable = boolValueForKey(@"folders_container_enable", NO);
     folders_container_blurFactor = numberForValue(@"folders_container_blurFactor", 40);
     folders_container_colorTintAlpha = numberForValue(@"folders_container_colorTintAlpha", 0.3);
     folders_container_saturationDeltafactor = numberForValue(@"folders_container_saturationDeltafactor",1.9);
-    folders_container_red = numberForValue(@"folders_container_red", 40);
-    folders_container_green = numberForValue(@"folders_container_green", 0.3);
-    folders_container_blue = numberForValue(@"folders_container_blue",1.9);
-
-    folders_container_red_float = (float) folders_container_red;
-    folders_container_green_float = (float) folders_container_green;
-    folders_container_blue_float = (float) folders_container_blue;
+    folders_container_redFactor = numberForValue(@"folders_container_redFactor", 40);
+    folders_container_greenFactor = numberForValue(@"folders_container_greenFactor", 0.3);
+    folders_container_blueFactor = numberForValue(@"folders_container_blueFactor",1.9);
 }

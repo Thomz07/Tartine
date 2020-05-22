@@ -11,6 +11,18 @@
 			<string>Container View</string>	
 		</dict>
         <dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.thomz.tartineprefs</string>
+			<key>key</key>
+			<string>folders_container_enable</string>
+			<key>label</key>
+			<string>Enable</string>
+		</dict>
+        <dict>
 			<key>default</key>
 			<real>1</real>
 			<key>cell</key>
@@ -26,7 +38,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_blurFactor</string>
+			<string>folders_container_blurFactor</string>
             <key>cellClass</key>
 			<string>KRLabeledSliderCell</string>
 			<key>label</key>
@@ -66,7 +78,7 @@
 			<key>min</key>
 			<real>0</real>
 			<key>max</key>
-			<real>40</real>
+			<real>10</real>
 			<key>isSegmented</key>
 			<false/>
 			<key>showValue</key>
@@ -99,6 +111,8 @@
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
 			<string>folders_container_redFactor</string>
+            <key>leftImage</key>
+			<string>red.png</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -117,6 +131,8 @@
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
 			<string>folders_container_greenFactor</string>
+            <key>leftImage</key>
+			<string>green.png</string>
 		</dict>
         <dict>
 			<key>default</key>
@@ -135,6 +151,8 @@
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
 			<string>folders_container_blueFactor</string>
+            <key>leftImage</key>
+			<string>blue.png</string>
 		</dict>
         <dict>
 			<key>cell</key>
