@@ -1,6 +1,6 @@
 #import "TARFolderController.h"
 
-_UICustomBlurEffect *blurViewNotification;
+_UICustomBlurEffect *blurEffectNotification;
 UIVisualEffectView *blurView;
 
 @implementation TARFolderController
@@ -8,6 +8,8 @@ UIVisualEffectView *blurView;
 void updateFolderBlurView() { 
 
 	prefs = [[NSUserDefaults standardUserDefaults]persistentDomainForName:@"com.thomz.tartineprefs"];
+
+	blurEffectNotification = [[_UICustomBlurEffect alloc]init];
 
 	double folders_container_blurFactor = [[prefs valueForKey:@"folders_container_blurFactor"] doubleValue];
 	double folders_container_colorTintAlpha = [[prefs valueForKey:@"folders_container_colorTintAlpha"] doubleValue];
@@ -19,12 +21,14 @@ void updateFolderBlurView() {
 	float folders_container_green_float = (float) folders_container_greenFactor;
 	float folders_container_blue_float = (float) folders_container_blueFactor;
 
-	blurViewNotification = [[_UICustomBlurEffect alloc] init];
-	blurViewNotification.blurRadius = folders_container_blurFactor;
-	blurViewNotification.colorTint = [UIColor colorWithRed:folders_container_red_float green:folders_container_green_float blue:folders_container_blue_float alpha:1.0];
-	blurViewNotification.colorTintAlpha = folders_container_colorTintAlpha;
-	blurViewNotification.saturationDeltaFactor = folders_container_saturationDeltafactor;
-	blurViewNotification.scale = ([UIScreen mainScreen].scale);
+	blurEffectNotification = [[_UICustomBlurEffect alloc] init];
+	blurEffectNotification.blurRadius = folders_container_blurFactor;
+	blurEffectNotification.colorTint = [UIColor colorWithRed:folders_container_red_float green:folders_container_green_float blue:folders_container_blue_float alpha:1.0];
+	blurEffectNotification.colorTintAlpha = folders_container_colorTintAlpha;
+	blurEffectNotification.saturationDeltaFactor = folders_container_saturationDeltafactor;
+	blurEffectNotification.scale = ([UIScreen mainScreen].scale);
+
+	blurView.effect = blurEffectNotification;
 }
 
 - (NSArray *)specifiers {
@@ -75,22 +79,32 @@ void updateFolderBlurView() {
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier specifier:specifier];
 
 	if(self){
+
+		updateFolderBlurView();
 		
-		UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurViewNotification];
+		blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffectNotification];
 		blurView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2,20,300,60);
 		blurView.layer.masksToBounds = YES;
 		blurView.layer.cornerRadius = 20;
 
-		[self updateBlur];
+		NSBundle *bundle = [[NSBundle alloc]initWithPath:@"/var/mobile/Library/SpringBoard"];
+		UIImage *wallpaperImage = [UIImage imageWithContentsOfFile:[bundle pathForResource:@"LockBackgroundThumbnail" ofType:@"jpg"]];
+		UIImageView *wallpaperView = [[UIImageView alloc]initWithImage:wallpaperImage];
+		wallpaperView.frame = CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,100);
+
+		UILabel *previewLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,40,[UIScreen mainScreen].bounds.size.width,20)];
+		previewLabel.text = @"Live preview blur";
+		previewLabel.textAlignment = NSTextAlignmentCenter;
+
+		[self addSubview:previewLabel];
 		[self addSubview:blurView];
+		[self addSubview:wallpaperView];
+		[self bringSubviewToFront:blurView];
+		[self bringSubviewToFront:previewLabel];
 
 	}
 	
 	return self;
-}
-
--(void)updateBlur {
-	updateFolderBlurView();
 }
 
 @end
