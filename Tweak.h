@@ -85,7 +85,7 @@ static void preferencesChanged() {
     folders_container_blurFactor = numberForValue(@"folders_container_blurFactor", 40);
     folders_container_colorTintAlpha = numberForValue(@"folders_container_colorTintAlpha", 0.3);
     folders_container_saturationDeltafactor = numberForValue(@"folders_container_saturationDeltafactor",1.9);
-    folders_container_redFactor = numberForValue(@"folders_container_redFactor", 40);
-    folders_container_greenFactor = numberForValue(@"folders_container_greenFactor", 0.3);
-    folders_container_blueFactor = numberForValue(@"folders_container_blueFactor",1.9);
+    folders_container_redFactor = numberForValue(@"folders_container_redFactor", 1);
+    folders_container_greenFactor = numberForValue(@"folders_container_greenFactor", 1);
+    folders_container_blueFactor = numberForValue(@"folders_container_blueFactor",1);
 }

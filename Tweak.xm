@@ -23,7 +23,6 @@
 	self.blurView.frame = self.bounds;
 
 	if(folders_container_enable){
-		MSHookIvar<UIVisualEffectView *>(self, "_blurView") = self.blurView;
 		[[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 		[self addSubview:self.blurView];
 	}
