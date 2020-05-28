@@ -6,6 +6,14 @@
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @end
 
+@interface SBFolderControllerBackgroundView : UIView
+@property (nonatomic, strong) UIVisualEffectView *blurView;
+@end
+
+@interface SBDockView : UIView
+@property (nonatomic, strong) UIVisualEffectView *blurView;
+@end
+
 @interface _UICustomBlurEffect : UIBlurEffect
 @property (assign,nonatomic) double grayscaleTintLevel; 
 @property (assign,nonatomic) double grayscaleTintAlpha; 
@@ -24,6 +32,9 @@
 @property (assign,nonatomic) double zoom;
 @end
 
+@interface MTMaterialView : UIView
+@end
+
 // global preferences bool
 
 BOOL enabled;
@@ -37,6 +48,16 @@ double folders_container_saturationDeltafactor;
 double folders_container_redFactor;
 double folders_container_greenFactor;
 double folders_container_blueFactor;
+
+// dock prefs
+
+BOOL dock_enable;
+double dock_blurFactor;
+double dock_colorTintAlpha;
+double dock_saturationDeltafactor;
+double dock_redFactor;
+double dock_greenFactor;
+double dock_blueFactor;
 
 #define PLIST_PATH @"/User/Library/Preferences/com.thomz.tartineprefs.plist"
 #define kIdentifier @"com.thomz.tartineprefs"
@@ -88,4 +109,14 @@ static void preferencesChanged() {
     folders_container_redFactor = numberForValue(@"folders_container_redFactor", 1);
     folders_container_greenFactor = numberForValue(@"folders_container_greenFactor", 1);
     folders_container_blueFactor = numberForValue(@"folders_container_blueFactor",1);
+
+    // dock
+
+    dock_enable = boolValueForKey(@"dock_enable", NO);
+    dock_blurFactor = numberForValue(@"dock_blurFactor", 40);
+    dock_colorTintAlpha = numberForValue(@"dock_colorTintAlpha", 0.3);
+    dock_saturationDeltafactor = numberForValue(@"dock_saturationDeltafactor", 1.9);
+    dock_redFactor = numberForValue(@"dock_redFactor", 1);
+    dock_greenFactor = numberForValue(@"dock_greenFactor", 1);
+    dock_blueFactor = numberForValue(@"dock_blueFactor", 1);
 }

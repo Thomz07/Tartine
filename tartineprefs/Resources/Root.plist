@@ -6,7 +6,9 @@
 	<array>
 		<dict>
 			<key>cell</key>
-			<string>PSGroupCell</string>		
+			<string>PSGroupCell</string>	
+			<key>headerCellClass</key>
+			<string>TartineHeaderCell</string>	
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -31,6 +33,26 @@
 			<string>TARFolderController</string>
 			<key>label</key>
 			<string>Folders</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>detail</key>
+			<string>TARDockController</string>
+			<key>label</key>
+			<string>Dock</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>		
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>resetPrefs</string>
+			<key>label</key>
+			<string>Reset Preferences</string>
 		</dict>
 	</array>
 	<key>title</key>

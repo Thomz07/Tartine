@@ -8,13 +8,13 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>	
             <key>label</key>
-			<string>Container View</string>	
+			<string>Dock</string>	
 		</dict>
         <dict>
 			<key>cell</key>
 			<string>PSDefaultCell</string>	
             <key>cellClass</key>
-			<string>TartinePreviewCellFolder</string>	
+			<string>TartinePreviewCellDock</string>	
             <key>height</key>
 			<integer>100</integer>	
 		</dict>
@@ -26,7 +26,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_enable</string>
+			<string>dock_enable</string>
 			<key>label</key>
 			<string>Enable</string>
 		</dict>
@@ -46,7 +46,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_blurFactor</string>
+			<string>dock_blurFactor</string>
             <key>cellClass</key>
 			<string>KRLabeledSliderCell</string>
 			<key>label</key>
@@ -72,7 +72,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_colorTintAlpha</string>
+			<string>dock_colorTintAlpha</string>
             <key>cellClass</key>
 			<string>KRLabeledSliderCell</string>
 			<key>label</key>
@@ -98,7 +98,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_saturationDeltafactor</string>
+			<string>dock_saturationDeltafactor</string>
             <key>cellClass</key>
 			<string>KRLabeledSliderCell</string>
 			<key>label</key>
@@ -124,7 +124,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_redFactor</string>
+			<string>dock_redFactor</string>
             <key>leftImage</key>
 			<string>red.png</string>
             <key>PostNotification</key>
@@ -146,7 +146,7 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_greenFactor</string>
+			<string>dock_greenFactor</string>
             <key>leftImage</key>
 			<string>green.png</string>
             <key>PostNotification</key>
@@ -168,20 +168,14 @@
 			<key>defaults</key>
 			<string>com.thomz.tartineprefs</string>
 			<key>key</key>
-			<string>folders_container_blueFactor</string>
+			<string>dock_blueFactor</string>
             <key>leftImage</key>
 			<string>blue.png</string>
             <key>PostNotification</key>
 			<string>com.thomz.tartineprefs/foldersBlurView</string>
 		</dict>
-        <dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>	
-            <key>label</key>
-			<string>Background View</string>	
-		</dict>
 	</array>
 	<key>title</key>
-	<string>Folders</string>
+	<string>Dock</string>
 </dict>
 </plist>

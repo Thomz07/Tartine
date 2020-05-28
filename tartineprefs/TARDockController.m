@@ -1,31 +1,31 @@
-#import "TARFolderController.h"
+#import "TARDockController.h"
 
 _UICustomBlurEffect *blurEffectNotification;
 UIVisualEffectView *blurView;
 
-@implementation TARFolderController
+@implementation TARDockController
 
-void updateFolderBlurView() { 
+void updateDockBlurView() { 
 
 	prefs = [[NSUserDefaults standardUserDefaults]persistentDomainForName:@"com.thomz.tartineprefs"];
 
 	blurEffectNotification = [[_UICustomBlurEffect alloc]init];
 
-	double folders_container_blurFactor = [[prefs valueForKey:@"folders_container_blurFactor"] doubleValue];
-	double folders_container_colorTintAlpha = [[prefs valueForKey:@"folders_container_colorTintAlpha"] doubleValue];
-	double folders_container_saturationDeltafactor = [[prefs valueForKey:@"folders_container_saturationDeltafactor"] doubleValue];
-	double folders_container_redFactor = [[prefs valueForKey:@"folders_container_redFactor"] doubleValue];
-	double folders_container_greenFactor = [[prefs valueForKey:@"folders_container_greenFactor"] doubleValue];
-	double folders_container_blueFactor = [[prefs valueForKey:@"folders_container_blueFactor"] doubleValue];
-	float folders_container_red_float = (float) folders_container_redFactor;
-	float folders_container_green_float = (float) folders_container_greenFactor;
-	float folders_container_blue_float = (float) folders_container_blueFactor;
+	double dock_blurFactor = [[prefs valueForKey:@"dock_blurFactor"] doubleValue];
+	double dock_colorTintAlpha = [[prefs valueForKey:@"dock_colorTintAlpha"] doubleValue];
+	double dock_saturationDeltafactor = [[prefs valueForKey:@"dock_saturationDeltafactor"] doubleValue];
+	double dock_redFactor = [[prefs valueForKey:@"dock_redFactor"] doubleValue];
+	double dock_greenFactor = [[prefs valueForKey:@"dock_greenFactor"] doubleValue];
+	double dock_blueFactor = [[prefs valueForKey:@"dock_blueFactor"] doubleValue];
+	float dock_redFactor_float = (float) dock_redFactor;
+	float dock_greenFactor_float = (float) dock_greenFactor;
+	float dock_blueFactor_float = (float) dock_blueFactor;//
 
 	blurEffectNotification = [[_UICustomBlurEffect alloc] init];
-	blurEffectNotification.blurRadius = folders_container_blurFactor;
-	blurEffectNotification.colorTint = [UIColor colorWithRed:folders_container_red_float green:folders_container_green_float blue:folders_container_blue_float alpha:1.0];
-	blurEffectNotification.colorTintAlpha = folders_container_colorTintAlpha;
-	blurEffectNotification.saturationDeltaFactor = folders_container_saturationDeltafactor;
+	blurEffectNotification.blurRadius = dock_blurFactor;
+	blurEffectNotification.colorTint = [UIColor colorWithRed:dock_redFactor_float green:dock_greenFactor_float blue:dock_blueFactor_float alpha:1.0];
+	blurEffectNotification.colorTintAlpha = dock_colorTintAlpha;
+	blurEffectNotification.saturationDeltaFactor = dock_saturationDeltafactor;
 	blurEffectNotification.scale = ([UIScreen mainScreen].scale);
 
 	blurView.effect = blurEffectNotification;
@@ -33,7 +33,7 @@ void updateFolderBlurView() {
 
 - (NSArray *)specifiers {
 	if (!_specifiers) {
-		_specifiers = [self loadSpecifiersFromPlistName:@"Folders" target:self];
+		_specifiers = [self loadSpecifiersFromPlistName:@"Dock" target:self];
 	}
 
 	return _specifiers;
@@ -43,33 +43,12 @@ void updateFolderBlurView() {
 
 	[super viewDidLoad];
 
-	updateFolderBlurView();
+	updateDockBlurView();
 
 	UIBarButtonItem *applyButton = [[UIBarButtonItem alloc] initWithTitle:@"Respring" style:UIBarButtonItemStylePlain target:self action:@selector(respring:)];
     self.navigationItem.rightBarButtonItem = applyButton;
 
-	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)updateFolderBlurView, CFSTR("com.thomz.tartineprefs/foldersBlurView"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
-}
-
--(void)viewWillAppear:(BOOL)arg1 {
-	if([[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/Folded.dylib"]){
-		UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Oops"
-							message:@"It seems like Folded is installed on your device, you should check out Appearance section, it has every features from Tartine"
-							preferredStyle:UIAlertControllerStyleAlert];
-
-		UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel
-		handler:^(UIAlertAction * action) {
-			[self.navigationController popToRootViewControllerAnimated:YES];
-		}];
-
-		[alert addAction:defaultAction];
-		[self presentViewController:alert animated:YES completion:nil];
-	} else {
-		[super viewWillAppear:arg1];
-	}
-
-	updateFolderBlurView();
-
+	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)updateDockBlurView, CFSTR("com.thomz.tartineprefs/foldersBlurView"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
 }
 
 -(void)respring:(id)sender {
@@ -95,7 +74,7 @@ void updateFolderBlurView() {
 
 @end
 
-@implementation TartinePreviewCellFolder
+@implementation TartinePreviewCellDock
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier specifier:(id)specifier {
 
@@ -103,7 +82,7 @@ void updateFolderBlurView() {
 
 	if(self){
 
-		updateFolderBlurView();
+		updateDockBlurView();
 		
 		blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffectNotification];
 		blurView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2,20,300,60);
@@ -131,3 +110,4 @@ void updateFolderBlurView() {
 }
 
 @end
+

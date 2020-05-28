@@ -4,7 +4,7 @@ include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = TartinePrefs
 
-TartinePrefs_FILES = TARRootListController.m TARFolderController.m
+TartinePrefs_FILES = TARRootListController.m TARFolderController.m TARDockController.m
 TartinePrefs_INSTALL_PATH = /Library/PreferenceBundles
 TartinePrefs_FRAMEWORKS = UIKit
 TartinePrefs_PRIVATE_FRAMEWORKS = Preferences
